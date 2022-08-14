@@ -19,7 +19,7 @@ module.exports = async function (context, req) {
       result = await common.handleStatic("./dist/client", url);
     } else {
       render = require(path.resolve(__dirname, "../dist/server/entry.server.js")).render;
-      result = await common.handleReact(render, url, "./dist/client");
+      result = await common.handleReact(render, url, path.resolve(__dirname, "../dist/client/index.html"));
     }
   } 
 

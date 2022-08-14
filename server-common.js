@@ -63,7 +63,7 @@ module.exports = {
 
     return null;
   },
-  handleReact: async function (renderAsync, url, base, transformAsync) {
+  handleReact: async function (renderAsync, url, pathToIndexHtml, transformAsync) {
     let result = await renderAsync(url);
 
     if(!result.headers["Content-Type"]){
@@ -78,7 +78,7 @@ module.exports = {
       result.headers["Content-Type"] = "application/json";
     } else if (result.html) {
       body = await fsp.readFile(
-        resolve(base + "/index.html"),
+        pathToIndexHtml,
         "utf8"
       );
 

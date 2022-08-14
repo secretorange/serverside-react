@@ -1,6 +1,7 @@
 let express = require("express");
 let common = require("./server-common");
 let root = process.cwd();
+let path = require("path");
 
 async function createServer() {
   let app = express();
@@ -32,7 +33,7 @@ async function createServer() {
         result = await common.handleReact(
           render,
           url,
-          "./",
+          path.resolve(__dirname, "./index.html"),
           async (template) => {
             return await vite.transformIndexHtml(url.url, template);
           }

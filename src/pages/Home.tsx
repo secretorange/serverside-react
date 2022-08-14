@@ -7,8 +7,8 @@ export function Home() {
         <p>The <strong>redirect</strong> page does a server redirect to about</p>
         <p>The <strong>sitemap</strong> page builds it's own string which is then written to the response, bypassing React.</p>
         <div className='flex gap-5 pt-10'>
-          <img src="/public/react.svg" />
-          <img src="/public/vite.svg" />
+          <img src="/react.svg" />
+          <img src="/vite.svg" />
         </div>
 
       </div>
