@@ -8,7 +8,8 @@ async function createServer() {
 
   let vite = await require("vite").createServer({
     root,
-    server: { middlewareMode: "ssr" },
+    server: { middlewareMode: true },
+    appType: 'custom'
   });
 
   // Middleware takes care of assets and public folder
