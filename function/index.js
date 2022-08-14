@@ -18,7 +18,7 @@ module.exports = async function (context, req) {
     if (url.path.toLowerCase().startsWith("/assets/")) {
       result = await common.handleStatic("./dist/client", url);
     } else {
-      render = require(path.resolve(__dirname, "../dist/server/entry.server.js")).render;
+      render = (await import("../dist/server/entry.server.mjs")).render;
       result = await common.handleReact(render, url, path.resolve(__dirname, "../dist/client/index.html"));
     }
   } 

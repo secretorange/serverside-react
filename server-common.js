@@ -18,6 +18,11 @@ function getContentType(ext) {
       return "text/css";
     case ".js":
       return "text/javascript";
+    case ".svg":
+      return "image/svg+xml";
+    case ".jpg":
+    case ".jpeg":
+      return "image/jpg";
   }
 
   return null;
