@@ -30,7 +30,5 @@ Post.serverside = async (result: RenderResult, context: IServerContext): Promise
  
     const response = await axios.get('https://jsonplaceholder.typicode.com/posts/' + id);
 
- 
-    
     result.data = await response.data;
 }

@@ -20,7 +20,7 @@ const loader = ({ src }: any) => {
     // TODO
     return src;
     // if (
-    //   !lowered.startsWith("rht/website/") &&
+    //   !lowered.startsWith("___/website/") &&
     //   !lowered.startsWith("system/temp/")
     // ) {
     //   return prependPublicDomain(src);

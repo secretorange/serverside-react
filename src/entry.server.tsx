@@ -5,7 +5,7 @@ import { StaticRouter } from "react-router-dom/server";
 
 import App from "./App";
 import { routes } from './routes.config';
-import { StaticContext } from './static-context';
+import { ServersideContext } from './contexts/serverside-context';
 
 export interface IServerContext {
   path: string;
@@ -53,11 +53,11 @@ export async function render(context: IServerContext): Promise<RenderResult>  {
   if(!result.body){
     result.html = ReactDOMServer.renderToString(
       <React.StrictMode>
-        <StaticContext.Provider value={result.data}>
+        <ServersideContext.Provider value={result.data}>
           <StaticRouter location={context.url}>
             <App />
           </StaticRouter>
-        </StaticContext.Provider>
+        </ServersideContext.Provider>
   
       </React.StrictMode>
     );

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StaticContext } from "../static-context";
+import { ServersideContext } from "../contexts/serverside-context";
 import { useLocation } from "react-router-dom";
 
 declare global {
@@ -11,7 +11,7 @@ declare global {
 export function useServerside(): any{
   // Try and get the static data from the context.
   // This is only used server side
-  const serverData = useContext(StaticContext);
+  const serverData = useContext(ServersideContext);
 
   if (serverData) {
     return serverData;

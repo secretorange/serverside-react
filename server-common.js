@@ -1,7 +1,11 @@
+/*
+This file is shared between the Express/Vite dev server and the Azure Production Function  
+*/
+
 let fsp = require("fs/promises");
 let path = require("path");
 var UrlPattern = require("url-pattern");
-let redirects = require("./redirects");
+let redirects = require("./src/redirects");
 
 for (let redirect of redirects) {
   redirect.sourcePattern = new UrlPattern(redirect.source);
@@ -23,6 +27,10 @@ function getContentType(ext) {
     case ".jpg":
     case ".jpeg":
       return "image/jpg";
+    case ".png":
+      return "image/png";
+    case ".gif":
+      return "image/gif";
   }
 
   return null;
