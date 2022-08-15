@@ -28,7 +28,7 @@ export function Post() {
     );
 }
 ```
-* The inital data from the Serverside Render is add to as a `window.__serverside = {...}` property on window.
+* The inital data from the Serverside Render is added as a `window.__serverside = {...}` property on window.
 * When navigating the app, the hook calls the same page url to get the page data using a `__serverside=true` querystring param to let the server know that the client is already hydrated and just wants JSON. 
 
 * Routes are defined in `src/routes.config.ts`
@@ -51,7 +51,7 @@ module.exports = [
 ];
 ```
 
-* The serverside function can deal with the response difrectly bypassing React, as in the sitemap example.
+* The serverside function can deal with the response directly, bypassing React, as in the sitemap example.
 ```
 Sitemap.serverside = async (result: RenderResult): Promise<any> => {
 
