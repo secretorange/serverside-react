@@ -27,21 +27,23 @@ export function useServerside(): any{
       data = window.__serverside;
     }
 
+    
     useEffect(() => {
         let alive = true;
+        if(!window.__serverside){
+          // Make a request to the same url but tell the server to only
+          // send back the JSON serverside props
+          fetch(location.pathname + "?__serverside=true")
+            .then((response) => response.json())
+            .then((data) => {
+              // Check the component is still there
+              if (alive) {
+                setData(data);
+              }
+            });
+        }
 
-        // Make a request to the same url but tell the server to only
-        // send back the JSON serverside props
-        fetch(location.pathname + "?__serverside=true")
-          .then((response) => response.json())
-          .then((data) => {
-            // Check the component is still there
-            if (alive) {
-              setData(data);
-
-              delete window.__serverside;
-            }
-          });
+        delete window.__serverside;
 
         return () => {
           // Make sure we don't try to setData if the effect has been cleaned
